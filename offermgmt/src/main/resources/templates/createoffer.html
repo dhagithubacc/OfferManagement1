@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create an offer</title>
+      <div th:replace="fragments/header :: header-css"/>
+</head>
+
+<body>
+
+<div class="container">
+       <form method="POST" modelAttribute="offerForm" class="form-signin" th:action="@{/docreate}">
+        <h2 class="form-signin-heading">Create offer</h2>
+       
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+               <input type="text" path="name" class="form-control" name="name" placeholder="Name"
+                            autofocus="true" />
+             <span th:text="${name}" class ='has-error' >name is not valid</span>  
+            </div>
+               
+       
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <input type="text" path="email" class="form-control" name="email" placeholder="Email" />
+                <span th:text="${email}" class ='has-error' >email is not valid</span> 
+            </div>
+        
+
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <input type="text" path="text" class="form-control" name="text" placeholder="Your Offer" />
+               <span th:text="${text}" class ='has-error' >Text is not valid</span>
+            </div>
+       
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+
+</div>
+<!-- /container -->
+<p></p>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>
